@@ -96,5 +96,6 @@ class MyWindow(Gtk.Window):
 
 win = MyWindow()
 win.connect("destroy", Gtk.main_quit)
+win.set_position(Gtk.WindowPosition.CENTER)
 win.show_all()
 Gtk.main()
