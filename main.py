@@ -1,6 +1,6 @@
-import gi
-import os
-import pwd
+#!/usr/bin/env python3
+
+import gi, os, pwd
 
 gi.require_version("Gtk", "3.0")
 
