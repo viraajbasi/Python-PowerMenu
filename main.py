@@ -1,6 +1,9 @@
 import gi
 import os
+import pwd
+
 gi.require_version("Gtk", "3.0")
+
 from gi.repository import Gtk
 
 class MyWindow(Gtk.Window):
@@ -82,7 +85,9 @@ class MyWindow(Gtk.Window):
         Gtk.main_quit()
     
     def logout(self, widget):
-        os.system("killall dwm")
+        currentUser = pwd.getpwuid(os.getuid())[0]
+        cmd = "pkill -u {0}".format(currentUser)
+        os.system(cmd)
         Gtk.main_quit()
 
     def cancel(self, widget):
