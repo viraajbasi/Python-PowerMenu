@@ -13,7 +13,7 @@ class MyWindow(Gtk.Window):
         self.box = Gtk.Box(spacing=6)
         self.add(self.box)
 
-        shutdownIcon = Gtk.IconTheme.get_default().load_icon("system-shutdown-symbolic", 64, 0)
+        shutdownIcon = Gtk.IconTheme.get_default().load_icon("system-shutdown-symbolic", 256, 0)
         shutdownImage = Gtk.Image()
         shutdownImage.set_from_pixbuf(shutdownIcon)
         self.bshutdown = Gtk.Button()
@@ -22,7 +22,7 @@ class MyWindow(Gtk.Window):
         self.bshutdown.set_tooltip_text("Shutdown")
         self.box.pack_start(self.bshutdown, True, True, 0)
 
-        restartIcon = Gtk.IconTheme.get_default().load_icon("system-reboot-symbolic", 64, 0)
+        restartIcon = Gtk.IconTheme.get_default().load_icon("system-reboot-symbolic", 256, 0)
         restartImage = Gtk.Image()
         restartImage.set_from_pixbuf(restartIcon)
         self.brestart = Gtk.Button()
@@ -31,7 +31,7 @@ class MyWindow(Gtk.Window):
         self.brestart.set_tooltip_text("Restart")
         self.box.pack_start(self.brestart, True, True, 0)
 
-        sleepIcon = Gtk.IconTheme.get_default().load_icon("preferences-desktop-screensaver-symbolic", 64, 0)
+        sleepIcon = Gtk.IconTheme.get_default().load_icon("preferences-desktop-screensaver-symbolic", 256, 0)
         # Could not find a "suspend icon" so had to make do with this
         sleepImage = Gtk.Image()
         sleepImage.set_from_pixbuf(sleepIcon)
@@ -41,7 +41,7 @@ class MyWindow(Gtk.Window):
         self.bsleep.set_tooltip_text("Sleep")
         self.box.pack_start(self.bsleep, True, True, 0)
 
-        lockIcon = Gtk.IconTheme.get_default().load_icon("system-lock-screen-symbolic", 64, 0)
+        lockIcon = Gtk.IconTheme.get_default().load_icon("system-lock-screen-symbolic", 256, 0)
         lockImage = Gtk.Image()
         lockImage.set_from_pixbuf(lockIcon)
         self.block = Gtk.Button()
@@ -50,7 +50,7 @@ class MyWindow(Gtk.Window):
         self.block.set_tooltip_text("Lock")
         self.box.pack_start(self.block, True, True, 0)
 
-        logoutIcon = Gtk.IconTheme.get_default().load_icon("system-log-out-symbolic", 64, 0)
+        logoutIcon = Gtk.IconTheme.get_default().load_icon("system-log-out-symbolic", 256, 0)
         logoutImage = Gtk.Image()
         logoutImage.set_from_pixbuf(logoutIcon)
         self.blogout = Gtk.Button()
@@ -59,7 +59,7 @@ class MyWindow(Gtk.Window):
         self.blogout.set_tooltip_text("Logout")
         self.box.pack_start(self.blogout, True, True, 0)
 
-        cancelIcon = Gtk.IconTheme.get_default().load_icon("process-stop-symbolic", 64, 0)
+        cancelIcon = Gtk.IconTheme.get_default().load_icon("process-stop-symbolic", 256, 0)
         cancelImage = Gtk.Image()
         cancelImage.set_from_pixbuf(cancelIcon)
         self.bcancel = Gtk.Button()
