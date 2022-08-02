@@ -4,11 +4,13 @@ import gi, os, pwd
 
 gi.require_version("Gtk", "3.0")
 
-from gi.repository import Gtk
+from gi.repository import Gtk, Gdk
 
 class MyWindow(Gtk.Window):
     def __init__(self):
         super().__init__(title="Choose an Option")
+
+        self.connect("key-press-event", self.on_key_press_event)
 
         self.box = Gtk.Box(spacing=6)
         self.add(self.box)
@@ -92,6 +94,10 @@ class MyWindow(Gtk.Window):
 
     def cancel(self, widget):
         Gtk.main_quit()
+
+    def on_key_press_event(self, widget, event):
+        if event.keyval == Gdk.KEY_Escape:
+            Gtk.main_quit()
 
 
 win = MyWindow()
