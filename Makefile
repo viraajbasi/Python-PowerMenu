@@ -12,3 +12,4 @@ install:
 
 uninstall:
 	@rm -rf $(DESTDIR)$(PREFIX)/bin/powermenu
+	@rm -rf $(DESTDIR)$(PREFIX)/share/applications/PowerMenu.desktop
