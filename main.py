@@ -11,6 +11,8 @@ class MyWindow(Gtk.Window):
         super().__init__(title="Choose an Option")
 
         self.connect("key-press-event", self.on_key_press_event)
+        self.connect("destroy", Gtk.main_quit)
+        self.set_position(Gtk.WindowPosition.CENTER)
 
         box = Gtk.Box(spacing=6)
         self.add(box)
@@ -99,9 +101,6 @@ class MyWindow(Gtk.Window):
         if event.keyval == Gdk.KEY_Escape:
             Gtk.main_quit()
 
-
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.set_position(Gtk.WindowPosition.CENTER)
 win.show_all()
 Gtk.main()
