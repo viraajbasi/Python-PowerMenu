@@ -89,10 +89,8 @@ class MyWindow(Gtk.Window):
         Gtk.main_quit()
     
     def logout(self, widget):
-        #currentUser = pwd.getpwuid(os.getuid())[0]
         currentUser = os.getlogin()
         cmd = ["pkill", "-u", currentUser]
-        #subprocess.Popen(cmd)
         subprocess.Popen(cmd)
         Gtk.main_quit()
 
