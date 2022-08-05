@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import gi, os, pwd
+import gi, subprocess, os
 
 gi.require_version("Gtk", "3.0")
 
@@ -73,25 +73,27 @@ class MyWindow(Gtk.Window):
         box.pack_start(bcancel, True, True, 0)
 
     def shutdown(self, widget):
-        os.system("poweroff")
+        subprocess.Popen(["poweroff"])
         Gtk.main_quit()
 
     def restart(self, widget):
-        os.system("reboot")
+        subprocess.Popen(["reboot"])
         Gtk.main_quit()
     
     def sleep(self, widget):
-        os.system("slock systemctl suspend -i")
+        subprocess.Popen(["slock", "systemctl", "suspend", -i])
         Gtk.main_quit()
     
     def lock(self, widget):
-        os.system("slock")
+        subprocess.Popen(["slock"])
         Gtk.main_quit()
     
     def logout(self, widget):
-        currentUser = pwd.getpwuid(os.getuid())[0]
-        cmd = "pkill -u {0}".format(currentUser)
-        os.system(cmd)
+        #currentUser = pwd.getpwuid(os.getuid())[0]
+        currentUser = os.getlogin()
+        cmd = ["pkill", "-u", currentUser]
+        #subprocess.Popen(cmd)
+        subprocess.Popen(cmd)
         Gtk.main_quit()
 
     def cancel(self, widget):
