@@ -81,7 +81,7 @@ class MyWindow(Gtk.Window):
         Gtk.main_quit()
     
     def sleep(self, widget):
-        subprocess.Popen(["slock", "systemctl", "suspend", -i])
+        subprocess.Popen(["slock", "systemctl", "suspend", "-i"])
         Gtk.main_quit()
     
     def lock(self, widget):
