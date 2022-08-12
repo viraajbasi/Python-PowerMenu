@@ -73,11 +73,11 @@ class MyWindow(Gtk.Window):
         box.pack_start(bcancel, True, True, 0)
 
     def shutdown(self, widget):
-        subprocess.Popen(["poweroff"])
+        subprocess.Popen(["systemctl","poweroff"])
         Gtk.main_quit()
 
     def restart(self, widget):
-        subprocess.Popen(["reboot"])
+        subprocess.Popen(["systemctl","reboot"])
         Gtk.main_quit()
     
     def sleep(self, widget):
@@ -89,9 +89,7 @@ class MyWindow(Gtk.Window):
         Gtk.main_quit()
     
     def logout(self, widget):
-        currentUser = os.getlogin()
-        cmd = ["pkill", "-u", currentUser]
-        subprocess.Popen(cmd)
+        subprocess.Popen(["killall", "dwm"])
         Gtk.main_quit()
 
     def cancel(self, widget):
