@@ -35,6 +35,15 @@ class MyWindow(Gtk.Window):
         brestart.set_tooltip_text("Restart")
         box.pack_start(brestart, True, True, 0)
 
+        hibernateIcon = Gtk.IconTheme.get_default().load_icon("daytime-sunrise-symbolic", 256, 0)
+        hibernateImage = Gtk.Image()
+        hibernateImage.set_from_pixbuf(hibernateIcon)
+        bhibernate = Gtk.Button()
+        bhibernate.add(hibernateImage)
+        bhibernate.connect("clicked", self.hibernate)
+        bhibernate.set_tooltip_text("Hibernate")
+        box.pack_start(bhibernate, True, True, 0)
+ 
         sleepIcon = Gtk.IconTheme.get_default().load_icon("preferences-desktop-screensaver-symbolic", 256, 0)
         # Could not find a "suspend icon" so had to make do with this
         sleepImage = Gtk.Image()
@@ -78,6 +87,10 @@ class MyWindow(Gtk.Window):
 
     def restart(self, widget):
         subprocess.Popen(["systemctl","reboot"])
+        Gtk.main_quit()
+
+    def hibernate(self, widget):
+        subprocess.Popen(["slock", "systemctl", "hibernate", "-i"])
         Gtk.main_quit()
     
     def sleep(self, widget):
